@@ -1,0 +1,35 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic To Do List Application</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="top">
+            <input class="checkbox" type="checkbox" name="" id="" :checked="allChecked" @click="checkUncheckAll">
+            <input id="addNewItem" type="text" placeholder="What do you need to do?" v-model="newItem"
+                @keyup.enter="addNewTodo">
+            <button class="clear" @click="clearList">Clear List</button>
+        </div>
+        <div class="bottom">
+            <p>Here are your tasks:</p>
+            <ul>
+                <li v-for="(item, index) in todoList">
+                    <input class="checkbox2" type="checkbox" @click="checkUncheckIndividual(index)" name="" id="" :checked="item.checked">
+                    <p>{{index}}{{item.description}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
